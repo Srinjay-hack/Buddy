@@ -1,0 +1,150 @@
+.body{
+    background-color:black;
+    height: 100vh;
+    padding-left: 0%;
+    padding-right: 50%;
+    width:100%;                                                                             
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+
+.header{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header h1 {
+    color: rgb(253, 247, 247);
+    font-size: 50px;
+    font-weight: 400;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 900;
+    font-size: 25;
+}
+
+.header p {
+    color: white;
+    font-size: 25px;
+    font-weight: lighter;
+    font-family: 'Advent Pro', sans-serif;
+}
+.assistantbtn{
+    border: none;
+    margin: 7%;
+    padding: 13px;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    cursor: pointer;
+    display: block;
+    border: 2px solid #21be3b;
+    width: 180px;
+    height: 50px;
+    position:absolute;
+    top: 63%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+.assistantbtn p {
+    color: white;
+    font-size: 20px;
+    margin-top: -5px;
+}
+.assistant:hover p{
+    color:white;
+    opacity: 0.5;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+
+.assistantbtn:hover:before{
+    left:0%;
+    right: auto;
+    width: 100%;
+}
+
+
+.assistantbtn:before{
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    content: '';
+    color: #000 !important;
+    background: black;
+    opacity: 0.7;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1)0s;
+}
+.assistantbtn:hover a{
+    text-decoration: none;
+    
+}
+
+
+
+.callerbtn{
+    border: none;
+    margin: 7%;
+    padding: 13px;                                                                         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    cursor: pointer;
+    display: block;
+    border: 2px solid #14e0e7;
+    width: 180px;
+    height: 50px;
+    position: absolute;
+    top: 63%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+.callerbtn p {
+    color: white;
+    font-size: 20px;
+    margin-top: -5px;
+}
+.caller:hover p{
+    color: white;
+    opacity: 0.5;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+
+.callerbtn:hover:before{
+    right:0%;
+    left: auto;
+    width: 100%;
+}
+
+
+.callerbtn:before{
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    content: '';
+    color: #000 !important;
+    background: black;
+    opacity: 0.7;
+    transition: all 0.4s cubic-bezier(0.42, 0,0.58,1)0s;
+}
+
+
+.callerbtn:hover a{
+    text-decoration: none;
+    
+}
+
