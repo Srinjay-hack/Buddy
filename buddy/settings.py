@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'assistant',
     'caller',
-    'accounts',
+    
 ]
 
 MIDDLEWARE = [
