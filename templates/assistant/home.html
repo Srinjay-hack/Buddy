@@ -9,9 +9,9 @@
 </head>
 <body>
     
-    <h1>Welcome {{user.username}}</h1>
+    <h1>Welcome Assistant {{user.username}}</h1>
     <button type="button">Click Me!
-        <a href="/logout/">Logout</a> 
+        <a href="{% url 'Signup' %}">Logout</a> 
     </button>
 </body>
 </html>

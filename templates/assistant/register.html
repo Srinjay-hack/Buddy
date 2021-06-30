@@ -16,11 +16,29 @@
     <h1>Register</h1>
     <form action="" method="post">
         {% csrf_token %}
-        {{form}}
-       
+        <label for="username" >Username</label><br>
+        {{form.username}}<br>
+        <label for="email" >Email</label><br>
+        {{form.email}}<br>
+        <label for="password1" >Password</label><br>
+        {{form.password1}}<br>
+        <label for="password2" >Confirm Password</label><br>
+        {{form.password2}}<br> <br>
+        {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                {{ error|escape }}
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            {{ error|escape }}
+        {% endfor %}
+        {% endif %} <br><br>
+        <label for="phone" >Phone NO:</label><br>
+        {{form.phone}}<br>
         <input type="submit" value="Register">
         <div class="callerbtn">
-            <a href="/signin/">
+            <a href="{% url 'assistant_signin' %}">
                 <p>Already have an account? Sign In</p>
             </a>
          </div>   
