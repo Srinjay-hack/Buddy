@@ -11,6 +11,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL='accounts.User'
+
+
 
 # Application definition
 
@@ -23,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'assistant',
     'caller',
+    'accounts',
     
 ]
 
@@ -105,3 +109,4 @@ STATICFILES_DIRS=[
 LOGIN_REDIRECT_URL = 'assistant/home'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
