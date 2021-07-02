@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from  django.contrib.auth import login
 from django.contrib.auth import authenticate, login , logout
 from django.contrib import messages
+from django.views import generic
+from django.urls import reverse_lazy
+from  django.contrib.auth.forms import UserCreationForm,UserChangeForm
 
 # Create your views here.
 from django.views.generic import CreateView
@@ -103,6 +106,23 @@ def Callerhome(request):
     return render(request,"caller/home.html",{}) 
 
 def Assistanthome(request):
-    return render(request,"assistant/home.html",{})     
+    return render(request,"assistant/home.html",{}) 
+
+
+class CallerEditView(generic.UpdateView):
+    form_class=UserChangeForm
+    template_name="caller/edit_profile.html"
+    success_url=reverse_lazy("caller_home")
+    
+    def get_object(self):
+        return self.request.user    
+
+class AssistantEditView(generic.UpdateView):
+    form_class=UserChangeForm
+    template_name="caller/edit_profile.html"
+    success_url=reverse_lazy("caller_home")
+    
+    def get_object(self):
+        return self.request.user            
 
     
