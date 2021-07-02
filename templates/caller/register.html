@@ -25,6 +25,7 @@
         <label for="password2" >Confirm Password</label><br>
         {{form.password2}}<br> <br>
         
+
         {% if form.errors %}
         {% for field in form %}
             {% for error in field.errors %}
@@ -35,6 +36,9 @@
             {{ error|escape }}
         {% endfor %}
         {% endif %} <br><br>
+        <label for="phone" >Phone NO:</label><br>
+        {{form.phone}}<br>
+        
         <input type="submit" value="Register">
         <div class="callerbtn">
             <a href="{% url 'caller_signin' %}">

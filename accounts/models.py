@@ -12,9 +12,14 @@ class User(AbstractUser):
 
 class Assistant(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+    email=models.CharField(max_length=20)
     phone=models.CharField(max_length=20)
     pickup_location=models.CharField(max_length=256)
+    pincode=models.CharField(max_length=20)
+
     
+
+
 
 
 
@@ -26,8 +31,12 @@ class Assistant(models.Model):
 
 class Caller(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+    email=models.CharField(max_length=20)
     phone=models.CharField(max_length=20)
     pickup_location=models.CharField(max_length=256)
+    pincode=models.CharField(max_length=20)
+
+
 
 
     def __str__(self) :

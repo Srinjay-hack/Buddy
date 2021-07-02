@@ -7,8 +7,8 @@ from .models import User,Assistant,Caller
 
 
 class AssistantSignUp(UserCreationForm):
-    email = forms.EmailField(required=True)
-    phone=forms.CharField(max_length=20)
+    email = forms.CharField(max_length=20)
+    phone = forms.CharField(max_length=20)
 
 
     class Meta(UserCreationForm.Meta):
@@ -28,7 +28,8 @@ class AssistantSignUp(UserCreationForm):
 
 
 class CallerSignUp(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.CharField(max_length=20)
+    phone = forms.CharField(max_length=20)
 
     class Meta(UserCreationForm.Meta):
         model=User
@@ -40,6 +41,8 @@ class CallerSignUp(UserCreationForm):
         user.is_caller=True
         user.save()
         caller=Caller.objects.create(user=user)
+        caller.phone=self.cleaned_data.get('phone')
+        caller.save()
         return user
 
 

@@ -26,7 +26,7 @@ class CallerSignUpView(CreateView):
     def form_valid(self,form):
         user=form.save()
         login(self.request,user)
-        return redirect('Signup')
+        return redirect('caller_home')
 
 class AssistantSignUpView(CreateView):
     model=User
@@ -41,7 +41,7 @@ class AssistantSignUpView(CreateView):
     def form_valid(self,form):
         user=form.save()
         login(self.request,user)
-        return redirect('Signup')
+        return redirect('assistant_home')
 
 
 def AssistantloginUser(request):
