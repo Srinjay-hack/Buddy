@@ -6,6 +6,11 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
+    email=models.CharField(max_length=20)
+    phone=models.CharField(max_length=20)
+    pickup_location=models.CharField(max_length=256)
+    pincode=models.CharField(max_length=20)
+    
     is_assistant=models.BooleanField(default=False)
     is_caller=models.BooleanField(default=False)
 
@@ -16,14 +21,10 @@ class Assistant(models.Model):
     phone=models.CharField(max_length=20)
     pickup_location=models.CharField(max_length=256)
     pincode=models.CharField(max_length=20)
+    is_available=models.BooleanField(default=False)
+
 
     
-
-
-
-
-
-
     def __str__(self) :
         return self.user.username
 
