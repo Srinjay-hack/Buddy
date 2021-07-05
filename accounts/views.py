@@ -4,11 +4,11 @@ from django.contrib.auth import authenticate, login , logout
 from django.contrib import messages
 from django.views import generic
 from django.urls import reverse_lazy
-from  django.contrib.auth.forms import UserCreationForm,UserChangeForm
+from  django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 from django.views.generic import CreateView
-from .forms import AssistantSignUp,CallerSignUp
+from .forms import AssistantSignUp,CallerSignUp,CallerEdit,UserChangeForm
 from .models import User,Assistant,Caller
 
 def main(request):
@@ -109,6 +109,9 @@ def Assistanthome(request):
     return render(request,"assistant/home.html",{}) 
 
 
+
+
+
 class CallerEditView(generic.UpdateView):
     form_class=UserChangeForm
     template_name="caller/edit_profile.html"
@@ -117,12 +120,15 @@ class CallerEditView(generic.UpdateView):
     def get_object(self):
         return self.request.user    
 
+
 class AssistantEditView(generic.UpdateView):
     form_class=UserChangeForm
-    template_name="caller/edit_profile.html"
-    success_url=reverse_lazy("caller_home")
+    template_name="assistant/edit_profile.html"
+    success_url=reverse_lazy("assistant_home")
     
     def get_object(self):
         return self.request.user            
 
     
+
+

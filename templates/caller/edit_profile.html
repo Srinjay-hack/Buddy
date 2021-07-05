@@ -6,18 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
 </head>
+<style>
+    .container{
+        text-align:center;
+    }
+</style>
 
 <body>
-    <div class="form-group">
-        <form method="POST">
+    <div class="container">
+        <h1>Update Profile</h1>
+        <form action="" method="post">
             {% csrf_token %}
-            {{form.as_p}}
-            <button class="btn btn-secondary">Update</button>
-        </form>
+            <label for="username" >Username</label><br>
+            {{form.username}}<br>
+            <label for="email" >Email</label><br>
+            {{form.email}}<br>
+            
+            <label for="phone" >Phone NO:</label><br>
+            {{form.phone}}<br>
+            <label for="pickup_location" >Location</label><br>
+            {{form.pickup_location}}<br>
+            <label for="pincode" >Pincode</label><br>
+            {{form.pincode}}<br> <br>
+            
+            <input type="submit" value="Update">
               
-
-
+        </form>
     </div>
+    
     
 </body>
 </html>

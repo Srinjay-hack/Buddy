@@ -9,14 +9,19 @@
 </head>
 <body>
     
-    <h1>Welcome  Caller at your service {{user.username}}</h1>
-    <button type="button">Click Me!
-        <a href="{% url 'Signup' %}">Logout</a> 
-    </button>
-    <button type="button">Connect!
-        <a href="#"></a> 
-    </button>
-    <li><a href="{% url 'edit_profile_caller' %}"> Profile</a> </li>
+    <h1>Welcome  Caller  {{user.username|capfirst}}</h1>
+    <a href="{% url 'Signup' %}">Logout</a> <br>
+   
+    
+    <a href="#"> Connect! </a> <br>
+
+
+   <a href="{% url 'edit_profile_caller' %}">Edit Profile</a><br>
+
+    {% block content %} 
+
+
+    {% endblock %}
   
 </body>
 </html>

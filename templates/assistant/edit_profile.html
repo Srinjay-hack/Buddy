@@ -4,15 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
+    <title>Update Profile</title>
 </head>
+<style>
+    .container{
+        text-align:center;
+    }
+</style>
 
 <body>
-    <div class="form-group">
+    <div class="container">
         <form method="POST">
             {% csrf_token %}
-            {{form.as_p}}
-            <button class="btn btn-secondary">Update</button>
+            <label for="username" >Username</label><br>
+            {{form.username}}<br>
+            <label for="email" >Email</label><br>
+            {{form.email}}<br>
+            
+            <label for="phone" >Phone NO:</label><br>
+            {{form.phone}}<br>
+            <label for="pickup_location" >Location</label><br>
+            {{form.pickup_location}}<br>
+            <label for="pincode" >Pincode</label><br>
+            {{form.pincode}}<br> <br>
+            
+            <input type="submit" value="Update">
         </form>
               
 

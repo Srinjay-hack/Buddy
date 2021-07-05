@@ -9,12 +9,17 @@
 </head>
 <body>
     
-    <h1>Welcome Assistant {{user.username}}</h1>
-    <button type="button">Click Me!
-        <a href="{% url 'Signup' %}">Logout</a> 
-    </button>
+    <h1>Welcome Assistant {{user.username|capfirst}}</h1><br>
+  
+    <a href="{% url 'Signup' %}">Logout</a> <br>
+   
 
-    <li><a href="{% url 'edit_profile_assistant' %}"> Profile</a> </li>
+    <a href="{% url 'edit_profile_assistant' %}"> Profile</a>
+
+    {% block content %} 
+
+
+    {% endblock %}
 
 
 </body>
