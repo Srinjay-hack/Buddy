@@ -45,9 +45,6 @@ class CallerSignUp(UserCreationForm):
     email = forms.CharField(max_length=20)
     phone = forms.CharField(max_length=20)
 
-    pickup_location=forms.CharField(max_length=256)
-    pincode=forms.CharField(max_length=20)
-
     class Meta(UserCreationForm.Meta):
         model=User
         
@@ -57,16 +54,14 @@ class CallerSignUp(UserCreationForm):
         user=super().save(commit=False)
         user.email=self.cleaned_data.get('email')
         user.phone=self.cleaned_data.get('phone')
-        user.pickup_location=self.cleaned_data.get('pickup_location')
-        user.pincode=self.cleaned_data.get('pincode')
+       
         user.is_caller=True
         user.save()
 
         caller=Caller.objects.create(user=user)
         caller.email=self.cleaned_data.get('email')
         caller.phone=self.cleaned_data.get('phone')
-        caller.pickup_location=self.cleaned_data.get('pickup_location')
-        caller.pincode=self.cleaned_data.get('pincode')
+       
         caller.save()
         return user
 
