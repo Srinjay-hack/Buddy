@@ -14,6 +14,7 @@
 <body>
     <div class="container">
     <h1>LogIn</h1> 
+    
     <form method="POST" action="">
         {% csrf_token %}
         <label for="username">Username</label><br>
@@ -22,6 +23,7 @@
         <input type="password" name="password"><br>
         <input type="submit" value="Login">
     </form>
+    <h3>{{ error }}</h3>
 </div>
 </body>
 </html>

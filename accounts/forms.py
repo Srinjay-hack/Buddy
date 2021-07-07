@@ -96,24 +96,33 @@ class CallerEdit(UserCreationForm):
 
 
 
-class UserChangeForm(UserChangeForm):
-    pickup_location=forms.CharField(max_length=256)
-    pincode=forms.CharField(max_length=20) 
-
-    class Meta(UserChangeForm.Meta):
+class CallerEdit(forms.ModelForm):
+    
+    class Meta:
         model=User
-        
+        fields={
+            'username',
+            'email',
+            'phone',
+        }
 
-    @transaction.atomic 
-    def save(self):
 
-        user=super().save(commit=False)
-        user.pickup_location=self.cleaned_data.get('pickup_location')
-        user.pincode=self.cleaned_data.get('pincode')
-        user.save()
+class AssistantEdit(forms.ModelForm):
+    
+    class Meta:
+        model=User
+        fields={
+            'username',
+            'email',
+            'phone',
+        }        
 
-        caller=Caller.objects.create(user=user)
-        caller.pickup_location=self.cleaned_data.get('pickup_location')
-        caller.pincode=self.cleaned_data.get('pincode')
-        caller.save()
-        return user
+class AddOn(forms.ModelForm):
+    
+    class Meta:
+        model=Caller
+        fields={
+            'pickup_location',
+            'pincode',
+
+        }

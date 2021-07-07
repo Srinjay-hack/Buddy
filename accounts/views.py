@@ -8,7 +8,7 @@ from  django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 from django.views.generic import CreateView
-from .forms import AssistantSignUp,CallerSignUp,CallerEdit,UserChangeForm
+from .forms import AssistantSignUp,CallerSignUp,CallerEdit,AssistantEdit,AddOn
 from .models import User,Assistant,Caller
 
 def main(request):
@@ -113,7 +113,7 @@ def Assistanthome(request):
 
 
 class CallerEditView(generic.UpdateView):
-    form_class=UserChangeForm
+    form_class=CallerEdit
     template_name="caller/edit_profile.html"
     success_url=reverse_lazy("caller_home")
     
@@ -122,7 +122,7 @@ class CallerEditView(generic.UpdateView):
 
 
 class AssistantEditView(generic.UpdateView):
-    form_class=UserChangeForm
+    form_class=AssistantEdit
     template_name="assistant/edit_profile.html"
     success_url=reverse_lazy("assistant_home")
     
@@ -132,3 +132,26 @@ class AssistantEditView(generic.UpdateView):
     
 
 
+def addOn(request):
+    try:
+        profile = request.user.caller
+    except Caller.DoesNotExist:
+        profile = Caller(user=request.user)
+
+    if request.method=='POST':
+        form=AddOn(request.POST,instance=profile)
+         
+        if form.is_valid():
+            form.save()
+            return redirect('caller_home')
+
+    else:
+        form=AddOn(instance=profile)
+        args={'form':form}
+        return render(request,"caller/addOn.html",args) 
+
+         
+       
+        
+
+   

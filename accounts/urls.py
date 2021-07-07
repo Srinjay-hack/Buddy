@@ -10,6 +10,7 @@ urlpatterns=[
     path('accounts/assistant/home',Assistanthome,name="assistant_home"),
     path('accounts/edit/caller',CallerEditView.as_view(),name="edit_profile_caller"),
     path('accounts/edit/caller/',AssistantEditView.as_view(),name="edit_profile_assistant"),
+    path('accounts/connect/caller/',addOn,name="caller_addOn"),
     
 
 
