@@ -143,7 +143,7 @@ def addOn(request):
          
         if form.is_valid():
             form.save()
-            return redirect('caller_home')
+            return redirect('connect_caller')
 
     else:
         form=AddOn(instance=profile)
