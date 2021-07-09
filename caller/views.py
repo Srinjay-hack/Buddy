@@ -1,9 +1,9 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from accounts.models import  Caller
 
 # Create your views here.
 from .forms import Createfile
-
+from .models import Measurements
 
 def main(request):
     return render(request,"caller/connect.html",{})
@@ -27,3 +27,14 @@ def choosefile(request):
         form=Createfile(instance=profile)
         args={'form':form}
         return render(request,"caller/connect.html",args) 
+
+
+
+def calulate_distance_view(request):
+    obj=get_object_or_404(Measurements,request)
+
+    context={
+        'distance' : obj,
+    }
+    return render(request,"caller/connect.html",context)
+

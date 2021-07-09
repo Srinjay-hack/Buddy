@@ -4,6 +4,7 @@ from  django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django.db import transaction
 
 from accounts.models import Caller
+from .models import Measurements
 
 
 
@@ -15,3 +16,10 @@ class Createfile(forms.ModelForm):
             'estimated_amount',
             'list_file',
         }
+
+
+
+class MeasurementModelForm(forms.ModelForm):
+    class Meta:
+        model=Measurements
+        fields=('destination',)
