@@ -11,8 +11,4 @@ urlpatterns=[
     path('edit/caller',CallerEditView.as_view(),name="edit_profile_caller"),
     path('edit/caller/',AssistantEditView.as_view(),name="edit_profile_assistant"),
     path('connect/caller/',addOn,name="caller_addOn"),
-    
-
-
-
 ]

@@ -37,6 +37,8 @@ class Caller(models.Model):
     phone=models.CharField(max_length=20)
     pickup_location=models.CharField(max_length=256)
     pincode=models.CharField(max_length=20)
+    estimated_amount=models.IntegerField(max_length=100,default=0)
+    list_file=models.FileField()
 
 
 
