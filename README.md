@@ -1,6 +1,6 @@
 # Buddy
 
-#License
+# License
 
  Copyright 2021 Srinjay Mondal
 
