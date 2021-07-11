@@ -13,14 +13,14 @@
 </style>
 <body>
     <div class="container">
-    {% for assistants in Assistants %}
+        <h2>On My Way!!</h2>
+    
 
-         <p>{{ assistants.email }}</p> 
-         <p>{{ assistants.phone }}</p> 
-         <p>{{ assistants.pickup_location }}</p>  
+       
+        Email: <l1>{{ Assistants.email }}</l1> <br>
+        Ph: <l1>{{ Assistants.phone }}</l1><br> 
+        Location: <l1>{{ Assistants.pickup_location }}</l1>  <br>
          
-
-    {% endfor %}
     </div>
     
 </body>

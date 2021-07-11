@@ -10,7 +10,7 @@ from  django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from .forms import AssistantSignUp,CallerSignUp,CallerEdit,AssistantEdit,AddOn
 from .models import User,Assistant,Caller
-
+import random
 
 #landingpage
 def main(request):
@@ -129,7 +129,7 @@ class CallerEditView(generic.UpdateView):
     def get_object(self):
         return self.request.user    
 
-#ssistantEditView
+#AssistantEditView
 class AssistantEditView(generic.UpdateView):
     form_class=AssistantEdit
     template_name="assistant/edit_profile.html"
@@ -155,14 +155,13 @@ def addOn(request):
 
         pincode = request.POST.get('pincode')
 
-        all_assistant=Assistant.objects.filter(pincode=pincode)
-
-        
-
         
          
         if form.is_valid():
-            all_assistant=Assistant.objects.filter(pincode=pincode)
+            all_assistant=list(Assistant.objects.filter(pincode=pincode))
+            count=Assistant.objects.filter(pincode=pincode).count()
+            all_assistant=random.sample(all_assistant,count)[0]
+            
             form.save()
             return render (request,"caller/connect1.html",{'Assistants': all_assistant})
             
