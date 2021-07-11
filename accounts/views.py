@@ -137,13 +137,26 @@ def addOn(request):
         profile = request.user.caller
     except Caller.DoesNotExist:
         profile = Caller(user=request.user)
+    
 
+
+        
     if request.method=='POST':
         form=AddOn(request.POST,instance=profile)
+
+        pincode = request.POST.get('pincode')
+
+        all_assistant=Assistant.objects.filter(pincode=pincode)
+
+        
+
+        
          
         if form.is_valid():
+            all_assistant=Assistant.objects.filter(pincode=pincode)
             form.save()
-            return redirect('connect_caller')
+            return render (request,"caller/connect1.html",{'Assistants': all_assistant})
+            
 
     else:
         form=AddOn(instance=profile)
@@ -151,7 +164,17 @@ def addOn(request):
         return render(request,"caller/addOn.html",args) 
 
          
-       
+'''
+def caller_connected(request):
         
+    pincode = request.POST.get('pincode')
+
+    all_assistant=Assistant.objects.filter(pincode=pincode)
+    return render (request,"caller/connect1.html",{'Assistants': all_assistant})
+'''
+
+
+
+
 
    

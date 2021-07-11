@@ -8,13 +8,15 @@
 </head>
 <body>
     <h1>Connect</h1>
-    <div class="form-group">
+    <div class="container">
     <form acttion="update" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        
+        
 
         
-        <input type="submit" value="Submit">
+        <input type="submit" value="Connect">
+        <a href="{% url 'edit_profile_caller' %}">Edit Profile</a><br>
     </form>
     </div>
           

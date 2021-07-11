@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     path('connect/',main,name="connect_caller"),
-    path('connect/file',choosefile,name="file_caller"),
+    path('connect/file',calulate_distance_view,name="connect_caller"),
+    #path('connect/file/1',show_assistant,name="connect_caller_1"),
    
 ]
 

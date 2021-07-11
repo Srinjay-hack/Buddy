@@ -4,7 +4,7 @@ from  django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django.db import transaction
 
 from accounts.models import Caller
-from .models import Measurements
+from .models import Measurements,Connect
 
 
 
@@ -23,3 +23,11 @@ class MeasurementModelForm(forms.ModelForm):
     class Meta:
         model=Measurements
         fields=('destination',)
+
+
+
+
+class Conneced(forms.ModelForm):
+    class Meta:
+        model=Connect 
+        fields={'email'}       

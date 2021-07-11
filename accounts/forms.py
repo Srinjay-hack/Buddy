@@ -112,6 +112,9 @@ class AssistantEdit(forms.ModelForm):
             'phone',
         }        
 
+
+
+
 class AddOn(forms.ModelForm):
     
     class Meta:
@@ -121,3 +124,8 @@ class AddOn(forms.ModelForm):
             'pincode',
 
         }
+
+
+
+
+        

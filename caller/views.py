@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from accounts.models import  Caller
+from accounts.models import  Caller ,Assistant
 
 # Create your views here.
 from .forms import Createfile
@@ -31,10 +31,13 @@ def choosefile(request):
 
 
 def calulate_distance_view(request):
-    obj=get_object_or_404(Measurements,request)
 
-    context={
-        'distance' : obj,
-    }
-    return render(request,"caller/connect.html",context)
+   
+    return render(request,"caller/connect.html",{})
 
+
+'''
+def show_assistant(request):
+    all_assiatant=request.Assistant.objects.all()
+    return render (request, "caller/connecct1.html", all_assiatant)
+'''
