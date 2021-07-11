@@ -11,11 +11,13 @@ from django.views.generic import CreateView
 from .forms import AssistantSignUp,CallerSignUp,CallerEdit,AssistantEdit,AddOn
 from .models import User,Assistant,Caller
 
+
+#landingpage
 def main(request):
     return render(request,"landingpage/landing.html",{})
 
 
-
+#callersignupview
 class CallerSignUpView(CreateView):
     model=User
     form_class = CallerSignUp
@@ -31,6 +33,8 @@ class CallerSignUpView(CreateView):
         login(self.request,user)
         return redirect('caller_home')
 
+
+#assistantsignupform
 class AssistantSignUpView(CreateView):
     model=User
     form_class = AssistantSignUp
@@ -47,6 +51,7 @@ class AssistantSignUpView(CreateView):
         return redirect('assistant_home')
 
 
+#AssistantloginUser
 def AssistantloginUser(request):
     if request.method=='POST':
         username = request.POST.get('username')
@@ -69,6 +74,8 @@ def AssistantloginUser(request):
     
     return render(request,'assistant/signin.html',{})  
 
+
+#CallerloginUser
 def CallerloginUser(request):
     if request.method =='POST':
         username = request.POST.get('username')
@@ -95,23 +102,25 @@ def CallerloginUser(request):
 
 
 
+#logout
 def logoutUser(request):
     logout(request)
     return redirect('Signup')
 
 
 
-
+#callerhome
 def Callerhome(request):
     return render(request,"caller/home.html",{}) 
 
+#assistanthome
 def Assistanthome(request):
     return render(request,"assistant/home.html",{}) 
 
 
 
 
-
+#CallerEditView
 class CallerEditView(generic.UpdateView):
     form_class=CallerEdit
     template_name="caller/edit_profile.html"
@@ -120,7 +129,7 @@ class CallerEditView(generic.UpdateView):
     def get_object(self):
         return self.request.user    
 
-
+#ssistantEditView
 class AssistantEditView(generic.UpdateView):
     form_class=AssistantEdit
     template_name="assistant/edit_profile.html"
@@ -131,7 +140,7 @@ class AssistantEditView(generic.UpdateView):
 
     
 
-
+#addON Pincodes->and Address edit
 def addOn(request):
     try:
         profile = request.user.caller

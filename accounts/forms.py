@@ -5,7 +5,7 @@ from django.db import transaction
 
 from .models import User,Assistant,Caller
 
-
+#Assistant Signup Form
 class AssistantSignUp(UserCreationForm):
     email = forms.CharField(max_length=20)
     phone = forms.CharField(max_length=20)
@@ -41,6 +41,8 @@ class AssistantSignUp(UserCreationForm):
 
 
 
+#Caller Signup Form
+
 class CallerSignUp(UserCreationForm):
     email = forms.CharField(max_length=20)
     phone = forms.CharField(max_length=20)
@@ -63,8 +65,13 @@ class CallerSignUp(UserCreationForm):
         caller.phone=self.cleaned_data.get('phone')
        
         caller.save()
+  
         return user
 
+
+
+
+#Caller Edit Form
 class CallerEdit(UserCreationForm):
     email = forms.CharField(max_length=20)
     phone = forms.CharField(max_length=20)
@@ -114,7 +121,7 @@ class AssistantEdit(forms.ModelForm):
 
 
 
-
+#AddON Edit Form
 class AddOn(forms.ModelForm):
     
     class Meta:
