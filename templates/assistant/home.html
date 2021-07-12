@@ -1,13 +1,7 @@
+{% extends 'assistant/base.html' %} 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
+{% block title %}Home{% endblock title %}
+{% block content %}
     
     <h1>Welcome Assistant {{user.username|capfirst}}</h1><br>
   
@@ -16,11 +10,9 @@
 
     <a href="{% url 'edit_profile_assistant' %}"> Profile</a>
 
-    {% block content %} 
+ 
 
 
-    {% endblock %}
+{% endblock %}
 
 
-</body>
-</html>
