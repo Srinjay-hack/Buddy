@@ -36,15 +36,15 @@
 
 
 ### forms.py
- class AddOn(forms.ModelForm):
+    class AddOn(forms.ModelForm):
     
-    class Meta:
-        model=Caller
-        fields={
-            'pickup_location',
-            'pincode',
+       class Meta:
+           model=Caller
+           fields={
+               'pickup_location',
+               'pincode',
 
-        }
+           }
 
   
 
