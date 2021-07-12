@@ -96,12 +96,21 @@
         
          
             if form.is_valid():
-                all_assistant=list(Assistant.objects.filter(pincode=pincode))
-                count=Assistant.objects.filter(pincode=pincode).count()
-                all_assistant=random.sample(all_assistant,count)[0]
+
+                try:
+
+                    all_assistant=list(Assistant.objects.filter(pincode=pincode,is_available=True))
+                    count=Assistant.objects.filter(pincode=pincode,is_available=True).count()
+                    all_assistant=random.sample(all_assistant,count)[0]
+                
+                except IndexError as e:
+                        return render(request,"caller/feedback.html",{})  
+               
             
                 form.save()
-                return render (request,"caller/connect1.html",{'Assistants': all_assistant})
+                instance=form.save(commit=False)
+                instance.save()
+                return render (request,"caller/connect1.html",{'Assistants': all_assistant,'form':form,'instance':instance})
             
 
         else:
@@ -118,6 +127,8 @@
            fields={
                'pickup_location',
                'pincode',
+               'estimated_amount',
+               'list_file',
 
            }
 
