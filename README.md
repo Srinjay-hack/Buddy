@@ -3,12 +3,12 @@
 
 # Prerequisites
 - poetry add
-   asgiref==3.3.4
-   Django==3.2.4
-   Pillow==8.2.0
-   pkg-resources==0.0.0
-   pytz==2021.1
-   sqlparse==0.4.1
+ asgiref==3.3.4
+ Django==3.2.4
+ Pillow==8.2.0
+ pkg-resources==0.0.0
+ pytz==2021.1
+ sqlparse==0.4.1
  
 # Description
  In this project I have used Multiple Signup User
