@@ -4,7 +4,7 @@
  # Description
  In this project I have used Multiple Signup User
   - Assistant Signup
-        class AssistantSignUp(UserCreationForm):
+    -   class AssistantSignUp(UserCreationForm):
             email = forms.CharField(max_length=20)
             phone = forms.CharField(max_length=20)
 
@@ -38,7 +38,7 @@
                 return user
       
   - Caller Signup
-        class CallerSignUp(UserCreationForm):
+    -   class CallerSignUp(UserCreationForm):
             email = forms.CharField(max_length=20)
             phone = forms.CharField(max_length=20)
 
