@@ -4,9 +4,9 @@
  # Description
  In this project I have used Multiple Signup User
   - Assistant Signup
-    -   class AssistantSignUp(UserCreationForm):
-            email = forms.CharField(max_length=20)
-            phone = forms.CharField(max_length=20)
+    -   class AssistantSignUp(UserCreationForm):<br />
+            email = forms.CharField(max_length=20)<br />
+            phone = forms.CharField(max_length=20)<br />
 
             pickup_location=forms.CharField(max_length=256)
             pincode=forms.CharField(max_length=20)
