@@ -1,6 +1,72 @@
 # Buddy
  This is an django project used to connect your assistant(buddy) for shopping. Simply as shopping buddy which helps in need during this pandemic. If you are not going out connect your buddy and they will come and bring all your essentials you needed.
 
+ # Description
+ In this project I have used Multiple Signup User
+  -Assistant Signup
+      class AssistantSignUp(UserCreationForm):
+          email = forms.CharField(max_length=20)
+          phone = forms.CharField(max_length=20)
+
+          pickup_location=forms.CharField(max_length=256)
+          pincode=forms.CharField(max_length=20)
+
+
+          class Meta(UserCreationForm.Meta):
+               model= User
+    
+       
+
+          @transaction.atomic
+          def save(self):
+              user=super().save(commit=False)
+              user.email=self.cleaned_data.get('email')
+              user.phone=self.cleaned_data.get('phone')
+              user.pickup_location=self.cleaned_data.get('pickup_location')
+              user.pincode=self.cleaned_data.get('pincode')
+              user.is_assistant=True
+              user.save()
+
+
+              assistant=Assistant.objects.create(user=user)
+              assistant.email=self.cleaned_data.get('email')
+              assistant.phone=self.cleaned_data.get('phone')
+              assistant.pickup_location=self.cleaned_data.get('pickup_location')
+              assistant.pincode=self.cleaned_data.get('pincode')
+        
+              assistant.save()
+              return user
+      
+  -Caller Signup
+      class CallerSignUp(UserCreationForm):
+          email = forms.CharField(max_length=20)
+          phone = forms.CharField(max_length=20)
+
+          class Meta(UserCreationForm.Meta):
+              model=User
+        
+
+          @transaction.atomic
+          def save(self):
+              user=super().save(commit=False)
+              user.email=self.cleaned_data.get('email')
+              user.phone=self.cleaned_data.get('phone')
+             
+              user.is_caller=True
+              user.save()
+      
+              caller=Caller.objects.create(user=user)
+              caller.email=self.cleaned_data.get('email')
+              caller.phone=self.cleaned_data.get('phone')
+       
+              caller.save()
+  
+              return user
+
+      
+
+
+
 # Optimization Code
 
 ### views.py
@@ -46,6 +112,7 @@
 
            }
 
+More optimization needed...
   
 
 # License
