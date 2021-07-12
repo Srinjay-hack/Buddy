@@ -38,9 +38,9 @@
                 return user
       
   - Caller Signup
-    -   class CallerSignUp(UserCreationForm):
-            email = forms.CharField(max_length=20)
-            phone = forms.CharField(max_length=20)
+    -   class CallerSignUp(UserCreationForm):<br />
+            email = forms.CharField(max_length=20)<br />
+            phone = forms.CharField(max_length=20)<br />
 
             class Meta(UserCreationForm.Meta):
                 model=User
