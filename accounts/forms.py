@@ -129,9 +129,10 @@ class AddOn(forms.ModelForm):
         fields={
             'pickup_location',
             'pincode',
+            'estimated_amount',
+            'list_file',
 
         }
-
 
 
 

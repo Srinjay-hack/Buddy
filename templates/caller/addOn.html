@@ -5,7 +5,14 @@
     <div class="form-group">
         <form acttion="update" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <label for="pickup_location" >Location</label><br>
+            {{form.pickup_location}}<br>
+            <label for="pincode" >Pincode</label><br>
+            {{form.pincode}}<br>
+            <label for="list_file" >File</label><br>
+            {{form.list_file}}<br>
+            <label for="estimated_amount" >Amount</label><br>
+            {{form.estimated_amount}}<br>
 
           
 

@@ -38,7 +38,7 @@ class Caller(models.Model):
     pickup_location=models.CharField(max_length=256)
     pincode=models.CharField(max_length=20)
     estimated_amount=models.IntegerField(default=0)
-    list_file=models.FileField()
+    list_file=models.FileField(upload_to ='uploads/')
 
 
 
