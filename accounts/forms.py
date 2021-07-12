@@ -112,13 +112,13 @@ class CallerEdit(forms.ModelForm):
 class AssistantEdit(forms.ModelForm):
     
     class Meta:
-        model=User
+        model=Assistant
         fields={
-            'username',
+        
             'email',
             'phone',
+            'is_available',
         }        
-
 
 
 #AddON Edit Form

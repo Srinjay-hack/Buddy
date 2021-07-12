@@ -5,13 +5,13 @@
     <div class="container">
         <form method="POST">
             {% csrf_token %}
-            <label for="username" >Username</label><br>
-            {{form.username}}<br>
-            <label for="email" >Email</label><br>
+            <label for="email">Email</label><br>
             {{form.email}}<br>
             
-            <label for="phone" >Phone NO:</label><br>
+            <label for="phone">Phone NO:</label><br>
             {{form.phone}}<br>
+            <label for="is_available">Available ?</label>
+            {{form.is_available}}<br>
             
             <input type="submit" value="Update">
         </form>

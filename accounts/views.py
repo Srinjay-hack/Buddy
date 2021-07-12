@@ -1,10 +1,10 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render,redirect
 from  django.contrib.auth import login
 from django.contrib.auth import authenticate, login , logout
 from django.contrib import messages
 from django.views import generic
 from django.urls import reverse_lazy
-from  django.contrib.auth.forms import UserCreationForm
+
 
 # Create your views here.
 from django.views.generic import CreateView
@@ -201,5 +201,3 @@ def caller_connected(request):
 
 
 
-
-   
