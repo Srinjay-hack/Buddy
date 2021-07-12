@@ -2,12 +2,12 @@
  This is an django project used to connect your assistant(buddy) for shopping. Simply as shopping buddy which helps in need during this pandemic. If you are not going out connect your buddy and they will come and bring all your essentials you needed.
 
 # Prerequisites
-asgiref==3.3.4
-Django==3.2.4
-Pillow==8.2.0
-pkg-resources==0.0.0
-pytz==2021.1
-sqlparse==0.4.1
+        asgiref==3.3.4
+        Django==3.2.4
+        Pillow==8.2.0
+        pkg-resources==0.0.0
+        pytz==2021.1
+        sqlparse==0.4.1
  
 # Description
  In this project I have used Multiple Signup User
