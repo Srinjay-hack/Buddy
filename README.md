@@ -4,35 +4,35 @@
 # Optimization Code
 
 ### views.py
- def addOn(request):
-    try:
-        profile = request.user.caller
-    except Caller.DoesNotExist:
-        profile = Caller(user=request.user)
+    def addOn(request):
+        try:
+            profile = request.user.caller
+        except Caller.DoesNotExist:
+            profile = Caller(user=request.user)
     
 
 
         
-    if request.method=='POST':
-        form=AddOn(request.POST,instance=profile)
+        if request.method=='POST':
+            form=AddOn(request.POST,instance=profile)
 
-        pincode = request.POST.get('pincode')
+            pincode = request.POST.get('pincode')
 
         
          
-        if form.is_valid():
-            all_assistant=list(Assistant.objects.filter(pincode=pincode))
-            count=Assistant.objects.filter(pincode=pincode).count()
-            all_assistant=random.sample(all_assistant,count)[0]
+            if form.is_valid():
+                all_assistant=list(Assistant.objects.filter(pincode=pincode))
+                count=Assistant.objects.filter(pincode=pincode).count()
+                all_assistant=random.sample(all_assistant,count)[0]
             
-            form.save()
-            return render (request,"caller/connect1.html",{'Assistants': all_assistant})
+                form.save()
+                return render (request,"caller/connect1.html",{'Assistants': all_assistant})
             
 
-    else:
-        form=AddOn(instance=profile)
-        args={'form':form}
-        return render(request,"caller/addOn.html",args) 
+        else:
+            form=AddOn(instance=profile)
+            args={'form':form}
+            return render(request,"caller/addOn.html",args) 
 
 
 ### forms.py
