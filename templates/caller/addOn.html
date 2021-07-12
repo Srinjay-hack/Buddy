@@ -3,7 +3,7 @@
 {% block title %}AddOn{% endblock title %}
 {% block content %} 
     <div class="form-group">
-        <form acttion="update" method="POST">
+        <form acttion="update" method="POST", enctype='multipart/form-data'>
             {% csrf_token %}
             <label for="pickup_location" >Location</label><br>
             {{form.pickup_location}}<br>

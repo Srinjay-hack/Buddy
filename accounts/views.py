@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from  django.contrib.auth import login
 from django.contrib.auth import authenticate, login , logout
 from django.contrib import messages
@@ -150,20 +150,31 @@ def addOn(request):
 
 
         
-    if request.method=='POST':
-        form=AddOn(request.POST,instance=profile)
+    if request.method == 'POST':
+        form=AddOn(request.POST,request.FILES or None, instance=profile)
 
         pincode = request.POST.get('pincode')
 
         
          
         if form.is_valid():
-            all_assistant=list(Assistant.objects.filter(pincode=pincode))
-            count=Assistant.objects.filter(pincode=pincode).count()
-            all_assistant=random.sample(all_assistant,count)[0]
+
+            try:
+
+                all_assistant=list(Assistant.objects.filter(pincode=pincode,is_available=True))
+                count=Assistant.objects.filter(pincode=pincode,is_available=True).count()
+                all_assistant=random.sample(all_assistant,count)[0]
+                
+            except IndexError as e:
+                return render(request,"caller/feedback.html",{})  
+
             
             form.save()
-            return render (request,"caller/connect1.html",{'Assistants': all_assistant})
+            instance=form.save(commit=False)
+            instance.save()
+
+            return render (request,"caller/connect1.html",{'Assistants': all_assistant,'form':form,'instance':instance})
+              
             
 
     else:

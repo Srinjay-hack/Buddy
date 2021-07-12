@@ -10,7 +10,16 @@
         Email: <l1>{{ Assistants.email }}</l1> <br>
         Ph: <l1>{{ Assistants.phone }}</l1><br> 
         Location: <l1>{{ Assistants.pickup_location }}</l1>  <br>
-         
+
+        {% if instance.list_file %}
+
+            <img src = "{{ instance.list_file.url }}" class="img-responsive"  width="400" 
+            height="500" >
+        
+        {% endif %}<br>
+        Amount: Rs<l1>{{ form.estimated_amount }}</l1><br> 
+
+        <a href="{% url 'caller_addOn' %}">Cancel</a><br>
     </div>
     
 {% endblock %}

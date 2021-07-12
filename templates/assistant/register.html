@@ -13,7 +13,7 @@
         <label for="password1" >Password</label><br>
         {{form.password1}}<br>
         <label for="password2" >Confirm Password</label><br>
-        {{form.password2}}<br> <br>
+        {{form.password2}}<br> 
         {% if form.errors %}
         {% for field in form %}
             {% for error in field.errors %}
@@ -23,7 +23,7 @@
         {% for error in form.non_field_errors %}
             {{ error|escape }}
         {% endfor %}
-        {% endif %} <br><br>
+        {% endif %}
         <label for="phone" >Phone NO:</label><br>
         {{form.phone}}<br>
         <label for="pickup_location" >Location</label><br>
