@@ -164,7 +164,7 @@ def addOn(request):
                 all_assistant=list(Assistant.objects.filter(pincode=pincode,is_available=True))
                 count=Assistant.objects.filter(pincode=pincode,is_available=True).count()
                 all_assistant=random.sample(all_assistant,count)[0]
-                
+
             except IndexError as e:
                 return render(request,"caller/feedback.html",{})  
 
@@ -172,8 +172,14 @@ def addOn(request):
             form.save()
             instance=form.save(commit=False)
             instance.save()
+            context={
 
-            return render (request,"caller/connect1.html",{'Assistants': all_assistant,'form':form,'instance':instance})
+            'Assistants': all_assistant,
+            'form':form,
+            'instance':instance
+            }
+
+            return render (request,"caller/connect1.html",context)
               
             
 

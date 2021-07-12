@@ -110,7 +110,14 @@
                 form.save()
                 instance=form.save(commit=False)
                 instance.save()
-                return render (request,"caller/connect1.html",{'Assistants': all_assistant,'form':form,'instance':instance})
+                context={
+
+                    'Assistants': all_assistant,
+                    'form':form,
+                    'instance':instance
+                }
+
+                return render (request,"caller/connect1.html",context)
             
 
         else:
