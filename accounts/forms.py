@@ -97,6 +97,32 @@ class CallerEdit(UserCreationForm):
 
 
 
+class AssistantEdit(UserChangeForm):
+    email = forms.CharField(max_length=20)
+    phone = forms.CharField(max_length=20)
+    is_available=forms.BooleanField()
+
+    class Meta(UserChangeForm.Meta):
+        model=Assistant
+        fields=['email','phone','is_available']
+        
+
+    @transaction.atomic
+    def save(self):
+        user=super().save(commit=False)
+        user.email=self.cleaned_data.get('email')
+        user.phone=self.cleaned_data.get('phone')
+        user.is_available=self.cleaned_data.get('is_available')
+        user.is_assistant=True
+        user.save()
+
+        assistant=Assistant.objects.create(user=user)
+        assistant.email=self.cleaned_data.get('email')
+        assistant.phone=self.cleaned_data.get('phone')
+        assistant.is_available=self.cleaned_data.get('is_available')
+        assistant.save()
+        return user
+
 
 class CallerEdit(forms.ModelForm):
     
@@ -108,17 +134,17 @@ class CallerEdit(forms.ModelForm):
             'phone',
         }
 
-
 class AssistantEdit(forms.ModelForm):
     
     class Meta:
         model=Assistant
         fields={
-        
+           
             'email',
             'phone',
-            'is_available',
-        }        
+            'is_available'
+        }
+      
 
 
 #AddON Edit Form
