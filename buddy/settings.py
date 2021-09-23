@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+ 
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -7,9 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-@yab0vdkwjx9wk68v8_)(e#l9!x+!az)$0f*ht*hovma8un(v)'
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
+ 
+ALLOWED_HOSTS = ['shopbuddy.herokuapp.com','127.0.0.1']
 
 AUTH_USER_MODEL='accounts.User'
 
