@@ -106,7 +106,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"static"),
 ]
-STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static")
+STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"staticfiles")
 
 LOGIN_REDIRECT_URL = 'assistant/home'
 
