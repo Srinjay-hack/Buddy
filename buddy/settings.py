@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-@yab0vdkwjx9wk68v8_)(e#l9!x+!az)$0f*ht*hovma8un(v)'
 
-DEBUG = False
+DEBUG = True
  
 ALLOWED_HOSTS = ['shopbuddy.herokuapp.com','127.0.0.1']
 
