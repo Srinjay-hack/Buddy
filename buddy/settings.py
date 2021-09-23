@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
- 
+import django_heroku
+import dj_database_url 
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +11,7 @@ SECRET_KEY = 'django-insecure-@yab0vdkwjx9wk68v8_)(e#l9!x+!az)$0f*ht*hovma8un(v)
 
 DEBUG = True
  
-ALLOWED_HOSTS = ['shopbuddy.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL='accounts.User'
 
@@ -103,10 +104,8 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,"static"),
-]
-STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"staticfiles")
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 LOGIN_REDIRECT_URL = 'assistant/home'
 
@@ -115,4 +114,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") 
 MEDIA_URL= "/media/"
 
-
+django_heroku.settings(locals())
