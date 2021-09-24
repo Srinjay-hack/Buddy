@@ -9,7 +9,6 @@ from .models import User,Assistant,Caller
 class AssistantSignUp(UserCreationForm):
     email = forms.CharField(max_length=20)
     phone = forms.CharField(max_length=20)
-
     pickup_location=forms.CharField(max_length=256)
     pincode=forms.CharField(max_length=20)
 

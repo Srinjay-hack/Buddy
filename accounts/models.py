@@ -22,7 +22,7 @@ class Assistant(models.Model):
     phone=models.CharField(max_length=20)
     pickup_location=models.CharField(max_length=256)
     pincode=models.CharField(max_length=20)
-    is_available=models.BooleanField()
+    is_available=models.BooleanField(default=True)
 
 
     

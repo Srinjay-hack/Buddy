@@ -36,12 +36,12 @@ class CallerSignUpView(CreateView):
 
 #assistantsignupform
 class AssistantSignUpView(CreateView):
-    model=User
+    model=Assistant
     form_class = AssistantSignUp
     template_name="assistant/register.html"
 
     def get_context_data(self,**kwargs):
-        kwargs['user_type'] = 'caller'
+        kwargs['user_type'] = 'assistant'
         return super().get_context_data (**kwargs)
 
 
