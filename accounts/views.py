@@ -36,7 +36,7 @@ class CallerSignUpView(CreateView):
 
 #assistantsignupform
 class AssistantSignUpView(CreateView):
-    model=Assistant
+    model=User
     form_class = AssistantSignUp
     template_name="assistant/register.html"
 
@@ -115,6 +115,7 @@ def Callerhome(request):
 
 #assistanthome
 def Assistanthome(request):
+    
     return render(request,"assistant/home.html",{}) 
 
 
@@ -146,16 +147,11 @@ def addOn(request):
         profile = request.user.caller
     except Caller.DoesNotExist:
         profile = Caller(user=request.user)
-    
-
-
         
     if request.method == 'POST':
         form=AddOn(request.POST,request.FILES or None, instance=profile)
 
         pincode = request.POST.get('pincode')
-
-        
          
         if form.is_valid():
 
@@ -179,9 +175,7 @@ def addOn(request):
             'instance':instance
             }
 
-            return render (request,"caller/connect1.html",context)
-              
-            
+            return render (request,"caller/connect1.html",context)       
 
     else:
         form=AddOn(instance=profile)

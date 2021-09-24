@@ -1,12 +1,11 @@
 .body{
-    background-color:black;
+    background: linear-gradient(rgba(0, 0, 0.7, 0), rgba(0, 0, 0, 0.5)), url('/static/css/images/buddy2.jpg');
     height: 100vh;
     padding-left: 0%;
     padding-right: 50%;
-    width:100%;                                                                             
+    width:100%;                                                                    
     background-repeat: no-repeat;
-    background-size: cover;
-    
+    background-size:cover;
     
 }
 
@@ -94,7 +93,8 @@
 .callerbtn{
     border: none;
     margin: 7%;
-    padding: 13px;                                                                         transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    padding: 13px;                                                                        
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
     cursor: pointer;
     display: block;
     border: 2px solid #14e0e7;

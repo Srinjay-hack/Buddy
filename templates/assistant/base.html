@@ -5,22 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
     <title>{% block title%} {% endblock title %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">  
 </head>
 <style>
     .container{
         text-align:center;
-        background:grey;
+        background: url("/static/css/images/hear.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        height: 100%;
+        font-size: 25px;
+        margin: 0;
+        overflow:hidden;
+        padding:3px;
+        width:100%;                                                                             
+        background-repeat: no-repeat;
+        background-size: cover;
     }
+    .copyright{
+        background:#000;
+        color:#fff;
+        text-align: center;
+        padding:0px;
+    }
+    #footer {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/ 
+            height: 40px;
+            background: grey;
+        }
 </style> 
-<body>
+<body class="container">
     <div class="container">
         {% block content %}
-        
-
         {% endblock %}
 
     </div>
     
 </body>
+<div id="footer">Copyright © 2021 Buddy All Rights Reserved.</div>     
 </html>

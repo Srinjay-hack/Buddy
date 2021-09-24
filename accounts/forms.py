@@ -136,7 +136,7 @@ class CallerEdit(forms.ModelForm):
 class AssistantEdit(forms.ModelForm):
     
     class Meta:
-        model=Assistant
+        model=User
         fields={
            
             'email',

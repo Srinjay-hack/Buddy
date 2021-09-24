@@ -1,0 +1,10 @@
+.body{
+    background: url("/static/css/images/buddy.jpg");
+    height: 100vh;
+    padding-left: 0%;
+    padding-right: 50%;
+    width:100%;                                                                             
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
