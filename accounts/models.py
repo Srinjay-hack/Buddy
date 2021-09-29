@@ -1,9 +1,6 @@
 from django.db import models
 
-# Create your models here.
 from django.contrib.auth.models import AbstractUser
-
-
 
 class User(AbstractUser):
     
@@ -22,10 +19,7 @@ class Assistant(models.Model):
     phone=models.CharField(max_length=20)
     pickup_location=models.CharField(max_length=256)
     pincode=models.CharField(max_length=20)
-    is_available=models.BooleanField(default=False)
-
-
-    
+    is_available=models.BooleanField(default=True) 
     def __str__(self) :
         return self.user.username
 
