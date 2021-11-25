@@ -69,10 +69,8 @@ def AssistantloginUser(request):
                 messages.error(request,"Username or Password is invalid")
         else:
             messages.error(request,'Fill out alll the fields')
-
-
-    
     return render(request,'assistant/signin.html',{})  
+
 
 
 #CallerloginUser
